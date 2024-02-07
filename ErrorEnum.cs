@@ -1,0 +1,5 @@
+enum ErrorEnum
+{
+    InvalidLenght,
+    InvalidArguments
+}
