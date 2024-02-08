@@ -1,30 +1,30 @@
 public static class StartGame
 {
-    public static Enum Start(int userMove, int computerMove)
+    public static Enum Start(int computerMove, int userMove, int argsLength)
     {
-        int result = userMove - computerMove;
+        if(userMove == computerMove)
+            return GameResultEnum.DRAW;
 
-        if (result > 0)
+        if ((userMove > computerMove && userMove - computerMove <= argsLength / 2) ||
+            (userMove < computerMove && computerMove - userMove > argsLength / 2))
         {
             return GameResultEnum.WIN;
         }
-        else if (result < 0)
+        else
         {
             return GameResultEnum.LOSE;
         }
-
-        return GameResultEnum.DRAW;
     }
 
-    public static bool ResultOfGame(int userMove, int computerMove)
+    public static bool ResultOfGame(int computerMove, int userMove, int argsLength)
     {
-        if(Start(userMove, computerMove).Equals(GameResultEnum.WIN))
+        if(Start(computerMove, userMove, argsLength).Equals(GameResultEnum.WIN))
             Console.WriteLine("You win!");
         
-        if(Start(userMove, computerMove).Equals(GameResultEnum.LOSE))
+        if(Start(computerMove, userMove, argsLength).Equals(GameResultEnum.LOSE))
             Console.WriteLine("You lose!");
         
-        if(Start(userMove, computerMove).Equals(GameResultEnum.DRAW))
+        if(Start(computerMove, userMove, argsLength).Equals(GameResultEnum.DRAW))
             Console.WriteLine("Draw!");
         
         return true;

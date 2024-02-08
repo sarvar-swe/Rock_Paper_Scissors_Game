@@ -48,7 +48,7 @@ class Program
                 Console.WriteLine($"Your move: {args[userMove - 1]}");
                 Console.WriteLine($"Computer move: {args[computerMove]}");
 
-                finished = StartGame.ResultOfGame(userMove - 1, computerMove);
+                finished = StartGame.ResultOfGame(computerMove, userMove - 1, args.Length);
 
                 Console.WriteLine($"HMAC key: {BitConverter.ToString(key).Replace("-", "")}");
                 

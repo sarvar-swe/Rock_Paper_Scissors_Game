@@ -4,7 +4,7 @@ public static class TableGenerator
 {
     public static void PrintTable(string[] arguments)
     {
-        string[] items = arguments.Prepend("PC \\ User").ToArray();
+        string[] items = arguments.Prepend("v PC \\ User >").ToArray();
         var table = new ConsoleTable(items);
 
         for(int i = 0; i < arguments.Length; i++)
@@ -14,7 +14,7 @@ public static class TableGenerator
 
             for(int j = 0; j < arguments.Length; j++)
             {
-                row[j + 1] = Enum.GetName(typeof(GameResultEnum), StartGame.Start(j, i));
+                row[j + 1] = Enum.GetName(typeof(GameResultEnum), StartGame.Start(i, j, arguments.Length));
             }
 
             table.AddRow(row.ToArray());
